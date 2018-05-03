@@ -1,1 +1,2 @@
 # PricingManagerApp
+Novija verzija aplikacije
