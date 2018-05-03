@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Q-PricingManager</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</head>
+<body>
+    <div>
+        <a href="@Url.Action("Login", "Account")">
+          
+        </a>
+    </div>
+    <br />
+    <div class="container" >
+        <div class="badge pull-right" style="background-color:#337ab7">@User.Identity.Name</div>
+    </div> 
+    <div class="container">
+        <div class="navbar-form">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a class="btn btn-default  pull-left" href="@Url.Action("Index", "Pricing")"><span>Pricing</span></a>
+                    <a class="btn btn-default  pull-left" href="@Url.Action("Index", "PricingGroup")"><span>Pricing Group</span></a>
+                    <a class="btn btn-default  pull-left" href="@Url.Action("Index", "PricingTier")"><span>Pricing Tier</span></a>
+                    <a class="btn btn-default  pull-left" href="@Url.Action("Index", "PricingItem")"><span>Pricing Item</span></a>
+                    <a class="btn btn-default  pull-left" href="@Url.Action("Index", "PricingUnit")"><span>Pricing Unit</span></a>
+                    <a class="btn btn-default  pull-right" href="@Url.Action("LogOff", "Account")"><span>Log Out</span></a>                        
+                }
+                else
+                {
+                    <a class="btn btn-default  pull-right" href="@Url.Action("Login", "Account")"><span>Login</span></a>
+                }        
+        </div>
+    </div>
+
+    <div class="container body-content">
+
+        @RenderBody()
+
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Tarmel d.o.o.</p>
+        </footer>
+    </div>
+</body>
+</html>

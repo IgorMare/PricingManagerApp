@@ -1,0 +1,108 @@
+﻿@model QPricingManager.Core.Entities.PricingUnit
+
+@{
+    ViewBag.Title = "Edit";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal panel panel-primary panel-no-borders">
+		@Html.HiddenFor(model => model.CreateTime)
+        <div class="panel-heading heading-botton-margin">
+            <h4>Pricing Unit &frasl; Edit</h4>
+        </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+        <div class="form-group">
+            @Html.LabelFor(model => model.PricingItemId, "PricingItemId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("PricingItemId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PricingItemId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.PricingTierId, "PricingTierId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("PricingTierId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PricingTierId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.PricingUnitType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EnumDropDownListFor(model => model.PricingUnitType, htmlAttributes: new { @class = "form-control", id = "PricingUnitType" })
+                @Html.ValidationMessageFor(model => model.PricingUnitType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group showIfTypeCalculation">
+            @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group showIfTypeCalculation">
+            @Html.LabelFor(model => model.Multiplier, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Multiplier, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Multiplier, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group showIfTypeCheckBox">
+            @Html.LabelFor(model => model.IsIncluded, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.IsIncluded)
+                    @Html.ValidationMessageFor(model => model.IsIncluded, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group showIfTypeText">
+            @Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Text, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="panel-footer">
+            <a class="btn btn-default" href="@Url.Action("Index", "PricingUnit")"><i class="glyphicon glyphicon-list"></i><span>&nbsp;Back to list</span></a>
+            <input type="submit" value="Save" class="btn btn-default pull-left" />
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        showHidePricingUnitType();
+
+        $("#PricingUnitType").change(function () {
+            showHidePricingUnitType();
+        });
+    })
+
+    function showHidePricingUnitType() {
+        var dropdown = $("#PricingUnitType");
+
+        if (dropdown.val() == "@Convert.ToInt32(QPricingManager.Core.Entities.PricingUnitType.Calculation)") {
+                    $(".showIfTypeCalculation").show();
+                    $(".showIfTypeCheckBox").hide();
+                    $(".showIfTypeText").hide();
+        }
+        if (dropdown.val() == "@Convert.ToInt32(QPricingManager.Core.Entities.PricingUnitType.CheckBox)") {
+                    $(".showIfTypeCalculation").hide();
+                    $(".showIfTypeCheckBox").show();
+                    $(".showIfTypeText").hide();
+        }
+        if (dropdown.val() == "@Convert.ToInt32(QPricingManager.Core.Entities.PricingUnitType.Text)") {
+                    $(".showIfTypeCalculation").hide();
+                    $(".showIfTypeCheckBox").hide();
+                    $(".showIfTypeText").show();
+        }
+    }
+</script>

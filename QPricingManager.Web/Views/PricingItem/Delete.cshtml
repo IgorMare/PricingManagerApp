@@ -1,0 +1,44 @@
+﻿@model QPricingManager.Core.Entities.PricingItem
+
+@{
+    ViewBag.Title = "Delete";
+}
+<div class="panel panel-primary panel-no-borders">
+    <div class="panel-heading heading-botton-margin">
+        <h4>Pricing Item &frasl; Delete</h4>
+    </div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PricingGroup.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PricingGroup.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderInGroup)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OrderInGroup)
+        </dd>
+    </dl>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="panel-footer">
+            <a class="btn btn-default" href="@Url.Action("Index", "PricingItem")"><i class="glyphicon glyphicon-list"></i><span>&nbsp;Back to list</span></a>
+            <input type="submit" value="Delete" class="btn btn-default pull-left" />
+        </div>
+    }
+</div>

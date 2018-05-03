@@ -1,0 +1,77 @@
+﻿@model QPricingManager.Core.Entities.PricingUnit
+
+@{
+    ViewBag.Title = "Delete";
+}
+<div class="panel panel-primary panel-no-borders">
+    <div class="panel-heading heading-botton-margin">
+        <h4>Pricing Unit &frasl; Delete</h4>
+    </div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PricingItem.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PricingItem.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PricingTier.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PricingTier.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Multiplier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Multiplier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsIncluded)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsIncluded)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Text)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Text)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PricingUnitType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PricingUnitType)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="panel-footer">
+            <a class="btn btn-default" href="@Url.Action("Index", "PricingUnit")"><i class="glyphicon glyphicon-list"></i><span>&nbsp;Back to list</span></a>
+            <input type="submit" value="Delete" class="btn btn-default pull-left" />
+        </div>
+    }
+</div>
