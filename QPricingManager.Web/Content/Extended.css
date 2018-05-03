@@ -1,0 +1,123 @@
+﻿body {
+    background-image: url('../Content/IMG_10930.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    font: 14px/20px 'Open Sans', sans-serif;
+    padding-top: 10px;
+}
+
+/* Table stripes on all tables*/
+.table-striped {
+    background-color: #eee;
+    border-color: #585858;
+}
+
+.panel-no-borders {
+    border: hidden;
+}
+
+.heading-botton-margin {
+    margin-bottom: 20px;
+}
+
+/*Main navigation bar*/
+
+.main-nav-bar {
+    background-color: #C10000;
+}
+
+/*Table design CSS layout*/
+/* Use a wide full screen for small screens like tablets. */
+@media (min-width: 768px) and (max-width:992px) {
+    .container {
+        width: initial;
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+}
+
+/* --- Plans ---------------------------- */
+
+.pricingDetails_planHeader {
+    text-align: center;
+    color: white;
+    padding-top: inherit;
+    padding-bottom: inherit;
+    padding-right: inherit;
+}
+
+.pricingDetails_planTitle {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.pricingDetails_planPrice {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .pricingDetails_planTitle {
+        font-size: small;
+    }
+}
+
+.pricingGroups{
+    background-color:lightgray;
+}
+
+.multiplier {
+    width: 45px;
+    text-align: right;
+}
+
+.price {
+    width: 45px;
+    text-align: right;
+}
+
+.sum {
+    width: 45px;
+    text-align: right;
+}
+/* --- Features ------------------------- */
+
+.pricingDetails_feature {
+    line-height: 2.8em;
+}
+
+@media (max-width: 768px) {
+    .pricingDetails_feature {
+        text-align: center;
+    }
+}
+
+.pricingDetails_featureRow {
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    border: 0.1em solid rgb(163, 163, 163);
+}
+
+/* --- Plan 1 --------------------------- */
+.pricingDetails_plan {
+    background: rgb(224,234,242);
+}
+
+.pricingDetails_planHeader.pricingDetails_plan a {
+    background: rgb(72, 109, 139);
+    color: white;
+}
+
+.pricingDetails_planHeader.pricingDetails_plan {
+    background: rgb(105, 153, 193);
+}
+
+.pricingDetails_planFeature {
+    text-align: center;
+    font-size: 2em;
+}
+
+    .pricingDetails_planFeature i.pricingDetails_check {
+        color: green;
+    }
